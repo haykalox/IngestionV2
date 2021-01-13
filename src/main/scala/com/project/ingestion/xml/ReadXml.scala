@@ -8,18 +8,14 @@ object ReadXml {
     val spark: SparkSession = com.project.ingestion.connector.SparkConnector.getInstance().getSession()
 
     val df = spark.read
-      .option("rootTag", "message")
-      .option("rowTag", "personne")
-      .xml("C:\\test\\test1.xml")
+      .option("rootTag", "defaultkeymap")
+      .option("rowTag", "keymapgroup")
+      .xml(args(0))
 
     df.show()
 
 
   }
 
-
-  def toto(): Unit = {
-    val spark: SparkSession = new com.project.ingestion.connector.SparkConnector().getSession()
-  }
 
 }
